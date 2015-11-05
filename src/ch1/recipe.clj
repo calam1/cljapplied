@@ -1,7 +1,6 @@
 (ns ch1.recipe
   (:require [schema.core :as s]))
 
-
 (s/defrecord Ingredient
     [name     :- s/Str
      quantity :- s/Int
@@ -20,6 +19,10 @@
      steps :- [s/Str]
      servings :- s/Int
      ])
+
+(s/defn add-ingredients :- Recipe
+  [recipe :- Recipe & ingredients :- [Ingredient]]
+  (update-in recipe [:ingredients] into ingredients))
 
 (def toast
   (->Recipe
