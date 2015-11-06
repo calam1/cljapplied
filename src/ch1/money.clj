@@ -40,3 +40,5 @@
   ([] (make-money 0))
   ([amount] (make-money amount :usd))
   ([amount currency] (->Money amount (get currencies currency))))
+
+(def zero-dollars (make-money))
