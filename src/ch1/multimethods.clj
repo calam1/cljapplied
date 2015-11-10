@@ -27,3 +27,6 @@
 (defmethod cost Recipe [recipe store]
   (reduce +$ zero-dollars
           (map #(cost % store) (:ingredients recipe))))
+
+(defmethod cost Ingredient [Ingredient store]
+  (cost-of store Ingredient))
